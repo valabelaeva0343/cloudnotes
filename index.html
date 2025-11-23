@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CloudNotes — Облачный блокнот</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <!-- Экран авторизации -->
+  <div id="auth-screen" class="screen active">
+    <div class="auth-card glass">
+      <div class="logo">☁️</div>
+      <h2>CloudNotes</h2>
+      <p class="subtitle">Ваши заметки — в облаке, всегда под рукой</p>
+
+      <input type="email" id="email" placeholder="Ваш email" autocomplete="email" />
+      <input type="password" id="password" placeholder="Пароль (мин. 6 символов)" autocomplete="current-password" />
+
+      <div class="auth-buttons">
+        <button id="login-btn" class="btn primary">Войти</button>
+        <button id="signup-btn" class="btn outline">Регистрация</button>
+      </div>
+
+      <p id="auth-message" class="message"></p>
+    </div>
+  </div>
+
+  <!-- Основное приложение -->
+  <div id="app-screen" class="screen">
+    <header class="app-header glass">
+      <h1>CloudNotes</h1>
+      <button id="logout-btn" class="btn danger">Выход</button>
+    </header>
+
+    <main class="app-main">
+      <aside class="sidebar glass">
+        <div class="sidebar-header">
+          <h3>Ваши заметки</h3>
+          <button id="new-note-btn" class="btn small primary">+ Новая</button>
+        </div>
+        <ul id="notes-list" class="notes-list"></ul>
+      </aside>
+
+      <section class="editor glass">
+  <div class="editor-header">
+    <input type="text" id="note-title" placeholder="Заголовок заметки" maxlength="100" disabled />
+    <div class="editor-actions">
+      <span id="save-status" class="save-status">Не сохранено</span>
+      <button id="delete-note-btn" class="btn small danger" disabled>🗑️ Удалить</button>
+    </div>
+  </div>
+  <textarea id="note-content" placeholder="Начните писать..." disabled></textarea>
+  <div class="editor-footer">
+    <small>Заметки автоматически сохраняются в облако</small>
+  </div>
+</section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>

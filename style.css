@@ -1,0 +1,299 @@
+/* Общие настройки */
+:root {
+  --primary: #4361ee;
+  --primary-light: #4895ef;
+  --danger: #f72585;
+  --success: #4cc9f0;
+  --bg: #f8f9fa;
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --text: #212529;
+  --text-muted: #6c757d;
+  --border: rgba(0, 0, 0, 0.1);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --radius: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.screen {
+  display: none;
+  height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.screen.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* === Стеклянный стиль (Glassmorphism) === */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* === Экран авторизации === */
+#auth-screen {
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 32px;
+  text-align: center;
+}
+
+.logo {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.auth-card h2 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.subtitle {
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+#email,
+#password {
+  width: 100%;
+  padding: 14px;
+  margin: 8px 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.4);
+  font-size: 16px;
+  transition: border 0.3s;
+}
+
+#email:focus,
+#password:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.message {
+  color: var(--danger);
+  font-size: 14px;
+  min-height: 20px;
+}
+
+/* === Кнопки === */
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 16px;
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn.primary:hover {
+  background: var(--primary-light);
+}
+
+.btn.outline {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.btn.danger {
+  background: var(--danger);
+  color: white;
+}
+
+.btn.danger:hover {
+  opacity: 0.9;
+}
+
+.btn.small {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+/* === Основное приложение === */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+}
+
+.app-header h1 {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--primary);
+}
+
+.app-main {
+  display: flex;
+  flex: 1;
+  gap: 24px;
+  padding: 24px 0;
+}
+
+/* === Боковая панель === */
+.sidebar {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.notes-list {
+  list-style: none;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.notes-list li {
+  padding: 12px;
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.notes-list li:hover {
+  background: rgba(67, 97, 238, 0.1);
+}
+
+.notes-list li.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* === Редактор === */
+.editor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+#note-title {
+  flex: 1;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+#note-title:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.save-status {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-style: italic;
+}
+
+#note-content {
+  flex: 1;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  resize: none;
+  font-size: 16px;
+  line-height: 1.6;
+  transition: border 0.3s;
+}
+
+#note-content:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.editor-footer {
+  margin-top: 16px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* === Адаптивность === */
+@media (max-width: 768px) {
+  .app-main {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    max-height: 200px;
+  }
+  .editor {
+    min-height: 300px;
+  }
+}
+
+.editor-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#delete-note-btn {
+  padding: 6px 12px;
+  font-size: 13px;
+  height: fit-content;
+}
